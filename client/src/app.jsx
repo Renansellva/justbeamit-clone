@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 400, margin: "60px auto", textAlign: "center", fontFamily: "sans-serif" }}>
-      <h2>JustBeamIt Clone</h2>
+      <h2>linkp2p</h2>
       <form onSubmit={uploadFile}>
         <input type="file" onChange={handleFile} disabled={uploading} />
         <br /><br />
