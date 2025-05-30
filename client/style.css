@@ -1,4 +1,4 @@
-/* Reset básico para consistência */
+Reset básico para consistência
 * {
   margin: 0;
   padding: 0;
@@ -219,4 +219,282 @@ body::-webkit-scrollbar-track {
   border-radius: 10px;
   border: 2px solid #22c55e;
   background: #fff;
+}
+
+
+
+@media (max-width: 600px) {
+  .pix-cafezinho img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+
+
+
+
+
+
+/* Deixar o Site Responsivo (Notebook, Celular e Tablet) */
+
+/* Estilos base (desktop-first ou mobile-first) */
+.container {
+  /* ... seus estilos ... */
+  display: flex;
+  flex-direction: column; /* Já está assim, bom para mobile por padrão */
+  gap: 26px;
+}
+
+/* Para tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    max-width: 700px; /* Um pouco maior para tablets */
+    padding: 30px 25px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  /* Outros ajustes para tablets */
+}
+
+/* Para celulares (você já tem um, pode ajustar o max-width) */
+@media (max-width: 600px) { /* Ajustado o breakpoint como exemplo */
+  .container {
+    padding: 25px 15px; /* Mais padding para telas bem pequenas */
+    gap: 20px;
+  }
+  h1 {
+    font-size: 1.5rem; /* Ainda menor para celulares */
+  }
+  button, .button, .btn-enviar {
+    font-size: 1rem; /* Botões menores */
+    padding: 12px 0;
+  }
+  /* Ajustes no .pix-cafezinho que você já tem */
+}
+
+
+/* aqui o novo estilo */
+
+/* ... outros estilos ... */
+
+.link-container { /* Um container para o link e o botão de copiar */
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(26, 28, 41, 0.7); /* Um pouco mais de destaque */
+  border-radius: 8px;
+  border: 1px solid #313b5f;
+}
+
+.link-container input[type="text"] {
+  background-color: #22243b; /* Fundo um pouco diferente para o input readOnly */
+  border-color: #30e88b;
+  margin-bottom: 10px; /* Espaço antes do botão */
+}
+
+.link-container .button { /* Estilo para o botão copiar, se diferente do geral */
+    width: 100%; /* Ocupar toda a largura do container do link */
+    /* Você pode usar o estilo .button que já tem ou criar um novo */
+}
+
+.feedback-message {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #30e88b; /* Cor de sucesso */
+  text-align: center;
+}
+
+/* Se o feedback puder ser de erro também */
+.feedback-message.error {
+  color: #ff8a8a; /* Cor de erro */
+}
+
+
+
+
+
+
+
+
+/* No seu style.css */
+
+button, .button, .btn-enviar {
+  /* ...seus estilos existentes de background, color, font-weight, border, border-radius, cursor ... */
+  padding: 12px 20px; /* Ajuste: Adiciona padding horizontal para o texto não ficar colado nas bordas */
+  font-size: 1rem;   /* Ajuste: Um pouco menor que 1.1rem pode parecer mais equilibrado */
+  margin-top: 12px;
+  transition: background 0.16s, transform 0.1s, box-shadow 0.18s;
+  box-shadow: 0 3px 12px 0 rgba(59, 91, 219, 0.10);
+
+  /* Para centralizar o texto dentro do botão e garantir consistência */
+  display: inline-flex; /* Ou apenas 'flex' se o botão for ocupar a linha toda */
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Garante o alinhamento do texto */
+  width: auto; /* Para que o botão se ajuste ao conteúdo, a menos que queira largura fixa */
+  min-width: 120px; /* Exemplo: uma largura mínima para consistência */
+  line-height: 1.5; /* Ajuda no alinhamento vertical do texto */
+}
+
+/* Ajustes específicos para .btn-enviar se necessário, herdando o de cima */
+.btn-enviar {
+  /* ...seus estilos de background específico para .btn-enviar... */
+  box-shadow: 0 3px 12px 0 rgba(34, 197, 94, 0.13);
+}
+
+.btn-enviar:hover {
+  /* ...seu :hover do btn-enviar... */
+  transform: translateY(-2px); /* Removido o scale(1.04) que pode às vezes causar desalinhamento com elementos vizinhos */
+  box-shadow: 0 5px 16px 0 rgba(34, 197, 94, 0.19);
+}
+
+button:hover, .button:hover {
+  /* ...seu :hover do button geral... */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px 0 rgba(67, 97, 238, 0.16);
+}
+
+
+
+/* No seu style.css */
+
+.link-container {
+  /* Você já tem estilos inline, pode movê-los para cá ou complementar */
+  margin-top: 25px; /* Aumentei um pouco o espaço superior */
+  padding: 20px;
+  background: rgba(26, 28, 41, 0.85); /* Um pouco mais de opacidade */
+  border-radius: 12px; /* Aumentei o radius */
+  border: 1px solid #313b5f;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Faz os filhos (input e botão) esticarem na largura */
+  gap: 12px; /* Espaço entre o input, o botão de copiar e as mensagens */
+}
+
+.link-container b { /* Estilo para o "Link para compartilhar:" */
+  display: block; /* Para que o margin-bottom funcione bem */
+  margin-bottom: 8px;
+  color: #30e88b; /* Cor de destaque */
+  font-weight: 600;
+}
+
+.link-container input[type="text"] {
+  /* Seus estilos inline já estão bons, pode mantê-los ou mover para cá */
+  /* Exemplo de como ficaria aqui: */
+  width: 100%;
+  padding: 12px 15px; /* Aumentei um pouco o padding */
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1.8px solid #30e88b; /* Borda com a cor de destaque */
+  background: #22243b;
+  color: #f4f6fa;
+  font-size: 0.95rem; /* Ajuste no tamanho da fonte do link */
+}
+
+.link-container .button { /* Para o botão "Copiar Link" */
+  width: 100%; /* Já estava no inline style, bom manter */
+  margin-top: 0; /* Remove o margin-top padrão do botão, pois o gap do flex container já cuida disso */
+}
+
+.feedback-message {
+  /* Seus estilos para .feedback-message */
+  margin-top: 5px; /* Ajuste no espaço */
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Estilo para a mensagem de "download único" */
+.link-container > div:last-of-type { /* Seleciona o último div dentro de .link-container */
+  color: #8a93b3; /* Tom de cinza mais claro */
+  font-size: 0.85rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* No seu style.css */
+
+form {
+  display: flex;
+  flex-direction: column; /* Coloca os itens um abaixo do outro */
+  align-items: center;   /* Centraliza os itens na horizontal */
+  gap: 15px;             /* Espaço entre os elementos do formulário */
+}
+
+/* Para o input de arquivo, se quiser dar um estilo mais de botão ou melhorá-lo */
+input[type="file"] {
+  /* Você já tem estilos gerais para input, pode adicionar/ajustar aqui */
+  /* Exemplo para dar uma aparência mais consistente se o padrão do navegador for muito diferente: */
+  border: 1.8px solid #313b5f;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background: #1a1c29;
+  color: #c7d0f7; /* Cor do texto "nenhum arquivo selecionado" */
+  max-width: 100%; /* Para não estourar o container */
+}
+
+/* Estilizando a aparência do botão do input[type="file"] (mais avançado e varia entre navegadores) */
+input[type="file"]::file-selector-button {
+  background: linear-gradient(90deg, #3b5bdb 0%, #5eead4 100%);
+  color: #fff;
+  font-weight: 600; /* Era 700, ajustei para 600 */
+  border: none;
+  border-radius: 6px; /* Um pouco menor que o input geral */
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(90deg, #364fc7 0%, #14b8a6 100%);
+}
+
+
+
+
+/* sujestoes */
+
+/* No final do seu style.css, antes ou depois do .pix-cafezinho, ou junto com outros botões fixos */
+
+.sugestoes-button {
+  position: fixed;
+  bottom: 20px; /* Mesma distância da base que o .pix-cafezinho */
+  left: 20px;   /* Posicionado à esquerda */
+  background: #4a5568; /* Um cinza escuro neutro, por exemplo - escolha a cor que preferir */
+  color: #f4f6fa; /* Texto claro */
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem; /* Um pouco menor que os botões principais */
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000; /* Mesma prioridade de empilhamento do .pix-cafezinho */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Sombra um pouco mais sutil */
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.sugestoes-button:hover {
+  background-color: #2d3748; /* Cor mais escura no hover */
+  transform: scale(1.03);
+}
+
+/* Ajuste para o .pix-cafezinho para garantir que não haja sobreposição estranha
+   se a tela for muito estreita e ambos os botões estiverem na mesma "altura" visual.
+   Este é opcional e depende do seu design. Poderia usar media queries para
+   empilhá-los em telas muito pequenas se necessário. */
+
+/* Exemplo de ajuste em telas pequenas se necessário: */
+@media (max-width: 400px) { /* Se os botões ficarem muito próximos */
+  .sugestoes-button {
+    bottom: 70px; /* Sobe um pouco o botão de sugestões */
+    left: 15px;
+  }
+  .pix-cafezinho {
+    bottom: 15px; /* Mantém o pix mais abaixo ou ajusta conforme necessário */
+    right: 15px;
+  }
 }
