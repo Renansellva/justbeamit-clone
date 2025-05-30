@@ -498,3 +498,81 @@ input[type="file"]::file-selector-button:hover {
     right: 15px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pix-cafezinho {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Se o .pix-cafezinho estiver dentro de um container que o limita, ótimo.
+     Senão, você pode querer dar uma largura máxima para ele também.
+     max-width: 100%; ou um valor específico como 500px */
+}
+
+.info-pix {
+  display: flex;
+  flex-direction: column; /* Empilha o título e a área da chave */
+  gap: 5px;
+  /* Para que o .info-pix ocupe o espaço restante ao lado da imagem,
+     mas também possa encolher e quebrar o conteúdo se necessário: */
+  flex: 1;      /* Permite crescer e encolher */
+  min-width: 0; /* MUITO IMPORTANTE: Permite que o item flex encolha abaixo do seu tamanho de conteúdo intrínseco. Essencial para textos longos que precisam quebrar. */
+}
+
+.chave-pix-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  /* A largura desta área será controlada pelo .info-pix.
+     Não deve estourar se os filhos (.chave-pix-longa e botão) se comportarem. */
+}
+
+.chave-pix-longa {
+  font-size: 0.8em; /* Mantém a fonte menor */
+  color: #333;
+  line-height: 1.4; /* Espaçamento entre linhas se quebrar */
+  word-break: break-all; /* ESSENCIAL: Força a quebra da string longa em qualquer caractere */
+
+  /* Propriedades Flex para controle de largura e quebra: */
+  flex-grow: 1;   /* Permite que este elemento tente ocupar o espaço disponível na .chave-pix-area */
+  flex-shrink: 1; /* Permite que este elemento encolha se não houver espaço suficiente */
+  min-width: 0;   /* CRUCIAL com flexbox: Permite que o item encolha abaixo do tamanho do seu conteúdo,
+                     permitindo que word-break funcione efetivamente para wrapping. */
+  
+  /* Você ainda pode usar max-width se quiser um limite absoluto, mas
+     o min-width: 0 com as propriedades flex acima é geralmente mais adaptável. */
+  /* Exemplo: max-width: 200px; */ /* Ajuste este valor se precisar de um limite rígido menor */
+}
+
+#copyPixButton {
+  flex-shrink: 0; /* Impede que o botão de copiar seja esmagado ou encolhido */
+  /* ... seus outros estilos do botão (cor, padding, etc.) ... */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}#copyPixButton.botao-copiado-feedback { /* ou apenas .botao-copiado-feedback se for específico o suficiente */
+  background-color: #28a745; /* Verde para sucesso */
+}

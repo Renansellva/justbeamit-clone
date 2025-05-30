@@ -11,7 +11,9 @@ function PixCafezinho() {
   return (
     <div className="pix-cafezinho">
       <img src="/pixQrCode.jpeg" alt="QR Code Pix para um cafezinho" />
-      <span>Pix para um cafezinho ☕</span>
+      <span>Pix para um cafezinho ☕
+        
+      </span>
     </div>
   );
 }
@@ -74,7 +76,7 @@ export default function App() {
 
   // Função para o botão de sugestões
   const handleSugestoesClick = () => {
-    const seuEmail = "onepiecewn12@gmail.com"; 
+    const seuEmail = ""; 
     const assunto = encodeURIComponent("Sugestão para o Linkp2p");
     const corpoEmail = encodeURIComponent("Olá,\n\nEu tenho a seguinte sugestão para o site Linkp2p:\n\n");
     window.location.href = `mailto:${seuEmail}?subject=${assunto}&body=${corpoEmail}`;
