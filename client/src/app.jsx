@@ -4,7 +4,9 @@ import React, { useState } from "react";
 import axios from "axios";
 // import './App.css'; // ou './style.css'
 
-const API_URL = "http://localhost:4000/api";
+
+const API_URL = "https://linkp2p.onrender.com/api";
+//const API_URL = "http://localhost:4000/api";
 
 // Definição do componente PixCafezinho (como já tínhamos)
 function PixCafezinho() {
